@@ -1,20 +1,26 @@
 #include<stdio.h>
 
 int get(int arr[],int t,int n){
-    int s = 0,mid;
-    if(t>arr[n-1]){
+    int s=0,e,mid;
+    e = n;
+    if(t>arr[n-1])
+    {
         return n;
     }
-    while(s<=n){
-        mid = (s+n)/2;
-        if(arr[mid]==t){
+    while(s<=e)
+    {
+        mid = ((s+e)/2);
+        if(arr[mid]==t)
+        {
             return mid;
         }
-        else if(arr[mid]>t){
+        else if(t>arr[mid])
+        {
             s = mid+1;
         }
-        else{
-            n = mid-1;
+        else if(t<arr[mid])
+        {
+            e = mid-1;
         }
     }
     return s;
